@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Mobile Apps - Download Center</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --success-color: #34a853;
+            --bg-color: #f8f9fa;
+            --text-color: #3c4043;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #5f6368;
+            max-width: 600px;
+            margin: 10px auto 0;
+        }
+
+        /* Main Content & Cards */
+        .container {
+            flex: 1;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .apps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #202124;
+        }
+
+        .card p {
+            color: #5f6368;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            height: 60px; /* Maintains uniform card height */
+        }
+
+        .btn {
+            background-color: var(--success-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2d8e47;
+        }
+
+        /* Ads Section */
+        .ads {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: #e8f0fe;
+            border-radius: 12px;
+        }
+
+        .ads a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #202124;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .card { max-width: 100%; }
+        }
+
+        .app-features {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.app-features h2 {
+    text-align: center;
+    color: #1a73e8;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.feature-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #fbfbfb;
+}
+
+.feature-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-info {
+    flex: 1;
+}
+
+.feature-info h3 {
+    color: #202124;
+    border-left: 4px solid #1a73e8;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+.feature-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-info ul li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    color: #444;
+}
+
+.feature-info ul li::before {
+    content: "✔️";
+    position: absolute;
+    left: 0;
+    color: #34a853;
+}
+
+/* মোবাইল রেসপনসিভ */
+@media (max-width: 768px) {
+    .feature-item, .feature-item.reverse {
+        flex-direction: column;
+        text-align: left;
+    }
+}
+
+/* Container Styling */
+.app-dashboard-guide {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #fdfdfd;
+    border-radius: 25px;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.app-dashboard-guide h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 50px;
+}
+
+/* Grid Layout */
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Card Styling */
+.guide-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.guide-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+    border-color: #3498db;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card-header .icon {
+    font-size: 2rem;
+    background: #e1f5fe;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.card-header h3 {
+    margin: 0;
+    color: #34495e;
+    font-size: 1.3rem;
+}
+
+/* List Styling */
+ul.stats-list, .simulation-steps ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul.stats-list li, .simulation-steps ul li {
+    margin-bottom: 12px;
+    padding-left: 28px;
+    position: relative;
+    line-height: 1.5;
+    color: #555;
+}
+
+ul.stats-list li::before, .simulation-steps ul li::before {
+    content: "➜";
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* Special Layouts */
+.main-feature {
+    grid-column: span 1;
+    border-left: 5px solid #3498db;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+    background: #f8fbff;
+}
+
+/* Mobile Friendly */
+@media (max-width: 768px) {
+    .guide-grid {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📱Mobile Apps</h1>
+        <p>আপনার জ্ঞান বৃদ্ধি এবং দৈনন্দিন অনুশীলনের জন্য আমাদের ফ্রি শিক্ষামূলক ও আধ্যাত্মিক অ্যাপ ডাউনলোড করুন।</p>
+    </header>
+
+    <div class="container">
+        <div class="apps">
+            
+            <!-- App 1 -->
+            <div class="card">
+                <h2>📿 Naam Jap Counter</h2>
+                <h2>📘 New Version</h2>
+                <p>সহজেই আপনার মন্ত্র জপ ট্র্যাক করুন। পরিষ্কার এবং শান্ত ইন্টারফেস।</p>
+                <!-- GitHub Release Link Here -->
+                <a href="https://github.com/YourUsername/YourRepo/releases/latest/download/mcq-app.apk" class="btn">📥 Download APK</a>
+            </div>
+
+            <!-- App 2 -->
+            <div class="card">
+                <h2>📿 Naam Jap Counter</h2>
+                <h2>📘 Old Version</h2>
+                <p>সহজেই আপনার মন্ত্র জপ ট্র্যাক করুন। পরিষ্কার এবং শান্ত ইন্টারফেস।</p>
+                <!-- GitHub Release Link Here -->
+                <a href="https://github.com/YourUsername/YourRepo/releases/latest/download/naam-jap.apk" class="btn">📥 Download APK</a>
+            </div>
+
+        </div>
+
+        <section class="app-dashboard-guide">
+    <h2>📱 অ্যাপের কাজ ও বৈশিষ্ট্যসমূহ</h2>
+    <p class="subtitle">আমাদের অ্যাপের মেনু এবং ফাংশনগুলো যেভাবে কাজ করে</p>
+
+    <div class="guide-grid">
+        
+        <!-- ১. নামজপ (Simulation Game) -->
+        <div class="guide-card main-feature">
+            <div class="card-header">
+                <span class="icon">📿</span>
+                <h3>নামজপ (Simulation)</h3>
+            </div>
+            <p>এই পেজটি একটি আধ্যাত্মিক সিমুলেশন। নিচে ৪টি বাটন আছে:</p>
+            <div class="simulation-steps">
+                <ul>
+                    <li><b>১, ২, ৩ নম্বর বাটন:</b> এগুলো হলো <b>কৃষ্ণ</b>, <b>হরে</b> এবং <b>রাম</b>।</li>
+                    <li><b>সঠিক ক্রম:</b> আপনাকে সঠিক ক্রমে বাটন চেপে মহামন্ত্রটি পূর্ণ করতে হবে: <i>"হরে কৃষ্ণ হরে কৃষ্ণ কৃষ্ণ কৃষ্ণ হরে হরে, হরে রাম হরে রাম রাম রাম হরে হরে।"</i></li>
+                    <li><b>সঠিক হলে:</b> পুরো মহামন্ত্রটি সঠিক ক্রমে চাপলে একটি 'জপ' গণনা করা হবে।</li>
+                    <li><b>৪র্থ বাটন (Delete):</b> কোনো ভুল বাটন চাপলে এটি দিয়ে তা মুছে ফেলা যাবে।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ২. জপ গণনা (Statistics) -->
+        <div class="guide-card">
+            <div class="card-header">
+                <span class="icon">📊</span>
+                <h3>জপ গণনা (Counter)</h3>
+            </div>
+            <p>আপনার প্রতিদিনের অগ্রগতির হিসাব এখানে দেখতে পাবেন:</p>
+            <ul class="stats-list">
+                <li><b>আজকের জপ:</b> আজ আপনি কতবার সঠিক মহামন্ত্র জপ করেছেন।</li>
+                <li><b>সাপ্তাহিক ও মাসিক:</b> পুরো সপ্তাহ এবং মাসের হিসাব।</li>
+                <li><b>সর্বমোট (All Time):</b> অ্যাপটি শুরুর পর থেকে আপনার মোট জপ সংখ্যা।</li>
+            </ul>
+        </div>
+
+        <!-- ৩. প্রশ্ন উত্তর (MCQ & Study) -->
+        <div class="guide-card">
+            <div class="card-header">
+                <span class="icon">📘</span>
+                <h3>প্রশ্ন উত্তর (MCQ)</h3>
+            </div>
+            <p>পড়াশোনার জন্য এই সেকশনটি সাজানো হয়েছে:</p>
+            <ul class="stats-list">
+                <li><b>টপিক লিস্ট:</b> এখানে সব বিষয়ের সামারি বা সারসংক্ষেপ দেওয়া আছে।</li>
+                <li><b>MCQ প্র্যাকটিস:</b> যেকোনো টপিক সিলেক্ট করলেই সেই বিষয়ের প্রশ্ন ও উত্তর চলে আসবে।</li>
+            </ul>
+        </div>
+
+        <!-- ৪. বিস্তারিত (About App) -->
+        <div class="guide-card full-width">
+            <div class="card-header">
+                <span class="icon">📝</span>
+                <h3>বিস্তারিত (Description)</h3>
+            </div>
+            <p>এই বাটনে ক্লিক করলে আমাদের এই অ্যাপটি তৈরির উদ্দেশ্য, ডেভেলপার পরিচিতি এবং অ্যাপের সঠিক ব্যবহার বিধি সম্পর্কে বিস্তারিত তথ্য পাওয়া যাবে।</p>
+        </div>
+
+    </div>
+</section>
+
+        <div class="ads">
+            <p>Ads Authorization: 
+                <a href="app-ads.txt" target="_blank">View app-ads.txt</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Your Name | Mobile App Developer</p>
+        <p>Developed with ❤️ using Flutter</p>
+    </footer>
+
+</body>
+</html>
